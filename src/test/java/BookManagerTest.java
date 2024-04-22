@@ -53,7 +53,7 @@ class BookManagerTest {
     void testFindBooksByTitle() {
         List<Book> foundBooks = bookManager.findBooksByTitle("1984");
         assertFalse(foundBooks.isEmpty());
-        assertThat(foundBooks, hasItem(Matchers.hasProperty("author", equalTo("George Orwell"))));
+        assertThat(foundBooks, Matchers.hasItem(Matchers.hasProperty("author", equalTo("George Orwell"))));
     }
 
     @Test
