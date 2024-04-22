@@ -93,15 +93,15 @@ class BookManagerTest {
     @Test
     void testNoBooksByUnknownAuthor() {
         List<Book> booksByAuthor = bookManager.getBooksByAuthor("Unknown Author");
-        assertThat(booksByAuthor, is(empty()));
+        assertThat(booksByAuthor, Matchers.is(empty()));
     }
 
     @Test
     void testBooksByAuthorAndTitle() {
         List<Book> booksByAuthor = bookManager.getBooksByAuthor("Fyodor Dostoevsky");
-        assertThat(booksByAuthor, hasItem(allOf(
-                hasProperty("title", equalTo("Brothers Karamazov")),
-                hasProperty("author", equalTo("Fyodor Dostoevsky"))
+        assertThat(booksByAuthor, Matchers.hasItem(Matchers.allOf(
+                Matchers.hasProperty("title", Matchers.equalTo("Brothers Karamazov")),
+                Matchers.hasProperty("author", Matchers.equalTo("Fyodor Dostoevsky"))
         )));
     }
 }
